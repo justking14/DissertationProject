@@ -94,27 +94,28 @@ export default class MetricHandler {
      //load play data from firebase or start a new save
      async loadMetrics() {
           try {
-               console.log("🔄 Loading user metrics...");
+               console.log("Loading metrics");
                onValue(this.userRef, (snapshot) => {
+                    //if theres already a save file for user, load it 
                     if (snapshot.exists()) {
                          Object.assign(this, snapshot.val());
                          this.dayTracker = new Set(this.dayTracker);
                          this.session.start = Date.now();
 
-                         console.log("✅ Metrics loaded successfully.");
+                         console.log("Metrics loaded successfully.");
 
                     } else {
-                         console.log(`⚠️ No previous metrics found for ${this.email}, starting fresh.`);
+                         console.log(`No previous metrics found for ${this.email}, starting fresh.`);
                     }
-     
-                    //only once data is loaded or found to exist can the game start running and saving
+
+                    //confirm data has loaded and start the game
                     this.hasLoaded = true;
                     document.getElementById('game').removeAttribute("hidden");
                     document.getElementById('center-text').style.display = "none"
 
                }, { onlyOnce: true });
           } catch (error) {
-               console.error("❌ Error loading metrics:", error);
+               console.error("Error loading metrics:", error);
           }
      }
 
