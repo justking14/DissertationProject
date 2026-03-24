@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <title>Number Simulator</title>
+
+     <link rel="stylesheet" type="text/css" href="body.css">
+</head>
+
+<body>
+     <audio id="clickSound" src="sounds/miniClick2.mp3" preload="none"></audio>
+     <audio id="buySound" src="sounds/miniClick3.mp3" preload="none"></audio>
+     <audio id="buyMaxSound" src="sounds/miniClick3.mp3" preload="none"></audio>
+     <audio id="ascSound" src="sounds/bigDing.mp3" preload="none"></audio>
+     <audio id="buzzSound" src="sounds/buzzer.mp3" preload="none"></audio>
+
+
+     <h1>Number Simulator</h1>
+
+     <form id="emailForm">
+          <label for="email">Enter your RCS ID:</label>
+          <input id="email" required placeholder="e.g. smithB">
+          <button id="submit" type="submit"><span>Submit</span></button>
+     </form>
+
+     <div id="center-text" class="center-text">Loading...</div>
+
+
+     <div class="game" id="game" hidden="true" >
+
+          <h2 id="currency">Currency: 0</h2>
+          <div id="offlineText" style="font-size: 20px;"></div>
+          <p><a href="https://forms.gle/io9tsL34nyDXzPNp6" id="dailySurvey" target="_blank"
+          rel="noopener noreferrer">Daily Survey Link</a></p>
+
+          <p><a href="https://forms.gle/eAM6ygAULXTYjfLW6"  id="exitSurvey" target="_blank"
+               rel="noopener noreferrer">Exit Survey Link</a></p>
+
+          <div class="warning" id="warning"  hidden="true">Do NOT click the red button!</div>
+
+          <div class="button-container">
+               <button id="currencyButton"><span>Click for Currency</span></button>
+               <button id="ascendButton"><span>Ascend (Cost: 500)</span></button>
+          </div>
+
+          <div id="generators-container"></div>
+
+
+
+     </div>
+
+     <script src="util.js"></script>
+     <script src="firebaseConfig.js" type="module"></script>
+
+     <script src="script.js" type="module"></script>
+</body>
+
+</html>
